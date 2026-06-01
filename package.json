@@ -1,0 +1,41 @@
+{
+  "name": "wp-farm67",
+  "version": "1.0.0",
+  "description": "夢街道farm67 WordPress theme with TypeScript, Tailwind CSS, and Vite",
+  "scripts": {
+    "dev": "concurrently \"npm:wp:start\" \"npm:vite\"",
+    "build": "find . -name '.DS_Store' -type f -delete && vite build",
+    "vite": "vite",
+    "wp-env": "wp-env",
+    "wp:start": "wp-env start",
+    "wp:stop": "wp-env stop",
+    "wp:destroy": "wp-env destroy",
+    "format": "prettier --write \"**/*.{js,ts,jsx,tsx,css,scss,php,json,md}\"",
+    "format:check": "prettier --check \"**/*.{js,ts,jsx,tsx,css,scss,php,json,md}\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
+  },
+  "devDependencies": {
+    "@prettier/plugin-php": "^0.24.0",
+    "@tailwindcss/vite": "^4.2.0",
+    "@types/node": "^22.9.0",
+    "@vitejs/plugin-legacy": "^7.2.1",
+    "@wordpress/env": "^10.14.0",
+    "concurrently": "^9.1.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "sass": "^1.82.0",
+    "tailwindcss": "^4.2.0",
+    "typescript": "^5.7.2",
+    "vite": "^7.1.9",
+    "vite-plugin-live-reload": "^3.0.5"
+  },
+  "dependencies": {
+    "swiper": "^12.1.3"
+  }
+}

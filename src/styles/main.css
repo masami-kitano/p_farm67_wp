@@ -1,0 +1,301 @@
+@import 'tailwindcss';
+
+/* Tailwind v4 のクラス検出対象（テーマの PHP / フロントの TS） */
+@source '../../theme/**/*.php';
+@source '../scripts/**/*.ts';
+
+:root {
+  /* Colors */
+  --background: #e8e2c7;
+  --foreground: #d84830;
+  --black-base: #322b29;
+
+  /* Fonts */
+  --font-ja: 'Zen Kaku Gothic New', sans-serif;
+  --font-en: 'Rubik', serif;
+  --font-title-en: 'Notable', sans-serif;
+
+  /* Text sizes */
+  --text-10: 0.625rem;
+  --text-11: 0.6875rem;
+  --text-12: 0.75rem;
+  --text-13: 0.8125rem;
+  --text-14: 0.875rem;
+  --text-15: 0.9375rem;
+  --text-16: 1rem;
+  --text-17: 1.0625rem;
+  --text-18: 1.125rem;
+  --text-20: 1.25rem;
+  --text-22: 1.375rem;
+  --text-24: 1.5rem;
+  --text-26: 1.625rem;
+  --text-28: 1.75rem;
+  --text-30: 1.875rem;
+  --text-32: 2rem;
+  --text-36: 2.25rem;
+  --text-40: 2.5rem;
+  --text-44: 2.75rem;
+  --text-48: 3rem;
+  --text-52: 3.25rem;
+  --text-56: 3.5rem;
+  --text-60: 3.75rem;
+  --text-64: 4rem;
+  --text-76: 4.75rem;
+
+  /* Spacing */
+  --spacing-gutter-sm-5: calc(20 / 390 * 100vw);
+  --spacing-gutter-lg-20: calc(80 / 1440 * 100vw);
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-black-base: var(--black-base);
+  --font-ja: var(--font-ja);
+  --font-en: var(--font-en);
+  --font-title-en: var(--font-title-en);
+  --text-10: var(--text-10);
+  --text-11: var(--text-11);
+  --text-12: var(--text-12);
+  --text-13: var(--text-13);
+  --text-14: var(--text-14);
+  --text-15: var(--text-15);
+  --text-16: var(--text-16);
+  --text-17: var(--text-17);
+  --text-18: var(--text-18);
+  --text-20: var(--text-20);
+  --text-22: var(--text-22);
+  --text-24: var(--text-24);
+  --text-26: var(--text-26);
+  --text-28: var(--text-28);
+  --text-30: var(--text-30);
+  --text-32: var(--text-32);
+  --text-36: var(--text-36);
+  --text-40: var(--text-40);
+  --text-44: var(--text-44);
+  --text-48: var(--text-48);
+  --text-52: var(--text-52);
+  --text-56: var(--text-56);
+  --text-60: var(--text-60);
+  --text-64: var(--text-64);
+  --text-76: var(--text-76);
+  --spacing-gutter-sm-5: var(--spacing-gutter-sm-5);
+  --spacing-gutter-lg-20: var(--spacing-gutter-lg-20);
+  --animate-marquee: marquee 15s linear infinite;
+  --animate-marquee2: marquee2 15s linear infinite;
+}
+
+html {
+  background-color: #fffcf1;
+  scroll-behavior: smooth;
+  scroll-padding-top: 3.75rem;
+}
+
+body {
+  font-family: var(--font-ja);
+  font-weight: 500;
+  font-style: normal;
+  color: var(--black-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================
+   Marquee (footer image strip)
+========================================= */
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 50s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.marquee img {
+  width: 400px;
+  height: auto;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+  display: block;
+}
+
+/* iPhone など狭い画面では合成レイヤーを軽くするため画像を縮小し、
+   テクスチャ面積を抑えることでマーキーのカクつきを防ぐ。 */
+@media (max-width: 640px) {
+  .marquee {
+    animation-duration: 28s;
+  }
+
+  .marquee img {
+    width: 200px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    animation: none;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* =========================================
+   Schedule card flip (top schedule swiper)
+========================================= */
+.card-flip {
+  perspective: 1000px;
+  border-radius: 9999px;
+}
+
+.card-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card-flip-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-flip-front,
+.card-flip-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.card-flip-front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-flip-back {
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+}
+
+@media (min-width: 768px) {
+  .card-flip-inner.flipped {
+    transform: none;
+  }
+}
+
+/* =========================================
+   Strawberry swiper (arch layout)
+========================================= */
+.strawberry-swiper-container {
+  width: 100%;
+  padding: 40px 0 60px;
+  overflow: visible;
+}
+
+.strawberry-swiper {
+  overflow: visible !important;
+  padding: 0 20px;
+}
+
+.strawberry-swiper .swiper-wrapper {
+  align-items: flex-start;
+}
+
+.strawberry-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.strawberry-card-wrapper {
+  width: 100%;
+  transform: translateY(100px);
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.strawberry-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 9999px;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  overflow: hidden;
+  transform: rotate(30deg);
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .strawberry-swiper {
+    padding: 0 4px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .strawberry-swiper {
+    padding: 0;
+  }
+}
+
+.strawberry-card-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.strawberry-card-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* =========================================
+   Scroll reveal (FadeInOnScroll の代替)
+========================================= */
+[data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  transition:
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+[data-reveal='down'] {
+  transform: translate3d(0, -40px, 0);
+}
+
+[data-reveal='left'] {
+  transform: translate3d(40px, 0, 0);
+}
+
+[data-reveal='right'] {
+  transform: translate3d(-40px, 0, 0);
+}
+
+[data-reveal='none'] {
+  transform: translate3d(0, 0, 0);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
