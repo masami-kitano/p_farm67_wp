@@ -15,14 +15,21 @@ $farm67_characters = [
     'ruby' => 'いちごだいまおう',
     'image' => 'chara-ichigo-daimao.png',
     'description' =>
-      'いちごについて説明とかしてくれるキャラ。あきひめが好きだったが最近はほしうららが推し。',
+      'いちごについて説明とかしてくれるキャラ。<br class="hidden lg:block">あきひめが好きだったが最近はほしうららが推し。',
   ],
   [
     'name' => 'いも乙田いも夫',
     'ruby' => 'いもおだいもお',
     'image' => 'chara-imoodaimoo.png',
     'description' =>
-      'さつまいもを育てている腹巻きした青髭のさつまいもの妖精。焼き芋を焼いてくれる。',
+      'さつまいもを育てている腹巻きした青髭のさつまいもの妖精。<br class="hidden lg:block">焼き芋を焼いてくれる。',
+  ],
+  [
+    'name' => 'おっSUN',
+    'ruby' => 'おっサン',
+    'image' => 'chara-ossan.png',
+    'description' =>
+      '野菜のみんなが元気に育つための長重要人物。<br class="hidden lg:block">口癖は「オレに惚れたらヤケドするぜ？」',
   ],
 ];
 ?>
@@ -60,9 +67,13 @@ $farm67_characters = [
               ); ?></p>
             <?php endif; ?>
 
-            <p class="text-13 text-black-base md:text-14 leading-relaxed"><?php echo esc_html(
-              $farm67_character['description'],
-            ); ?></p>
+            <p class="text-13 text-black-base md:text-14 leading-relaxed"><?php
+            echo wp_kses($farm67_character['description'], [
+              'br' => [
+                'class' => true,
+              ],
+            ]);
+            ?></p>
           </div>
         </div>
       <?php endforeach; ?>
