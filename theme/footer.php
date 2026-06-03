@@ -26,30 +26,18 @@ $farm67_marquee_images = array_merge($farm67_access_images, $farm67_access_image
 ?>
 
 <footer class="relative flex flex-col bg-[#E8E2C7]">
-  <div class="relative flex overflow-hidden">
+  <div class="marquee-track relative overflow-hidden">
     <div class="marquee flex whitespace-nowrap">
       <?php foreach ($farm67_marquee_images as $farm67_src): ?>
-        <?php $farm67_marquee = farm67_marquee_img_attrs($farm67_src); ?>
-        <?php if ($farm67_marquee['mobile_src'] !== null): ?>
-        <picture>
-          <source
-            media="(max-width: 640px)"
-            srcset="<?php echo esc_url($farm67_marquee['mobile_src']); ?>"
-          />
-        <?php endif; ?>
-          <img
-            src="<?php echo esc_url($farm67_marquee['src']); ?>"
-            width="<?php echo (int) $farm67_marquee['width']; ?>"
-            height="<?php echo (int) $farm67_marquee['height']; ?>"
-            alt=""
-            class="flex-shrink-0 object-cover"
-            loading="lazy"
-            decoding="async"
-            fetchpriority="low"
-          />
-        <?php if ($farm67_marquee['mobile_src'] !== null): ?>
-        </picture>
-        <?php endif; ?>
+        <img
+          src="<?php echo esc_url(farm67_marquee_img($farm67_src)); ?>"
+          width="400"
+          height="267"
+          alt=""
+          class="flex-shrink-0 object-cover"
+          loading="lazy"
+          decoding="async"
+        />
       <?php endforeach; ?>
     </div>
   </div>

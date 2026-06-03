@@ -11,6 +11,7 @@ import { initScheduleSwiper } from '@/scripts/modules/schedule-swiper';
 import { initStrawberrySwiper } from '@/scripts/modules/strawberry-swiper';
 import { initDogrunSwiper } from '@/scripts/modules/dogrun-swiper';
 import { initMenuSideNav } from '@/scripts/modules/menu-sidenav';
+import { initMarquee } from '@/scripts/modules/marquee';
 
 const onReady = (cb: () => void): void => {
   if (document.readyState === 'loading') {
@@ -28,4 +29,5 @@ onReady(() => {
   initStrawberrySwiper();
   initDogrunSwiper();
   initMenuSideNav();
+  initMarquee();
 });

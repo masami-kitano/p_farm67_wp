@@ -103,35 +103,37 @@ body {
 /* =========================================
    Marquee (footer image strip)
 ========================================= */
+.marquee-track {
+  height: 267px;
+  contain: layout paint;
+}
+
 .marquee {
   display: flex;
   width: max-content;
-  animation: marquee 50s linear infinite;
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
+  animation: marquee 35s linear infinite;
+  animation-play-state: paused;
+}
+
+.marquee.is-running {
+  animation-play-state: running;
 }
 
 .marquee img {
   width: 400px;
   height: 267px;
   flex-shrink: 0;
-  margin: 0;
-  padding: 0;
   object-fit: cover;
   display: block;
-  pointer-events: none;
 }
 
-.marquee picture {
-  flex-shrink: 0;
-  display: block;
-}
-
-/* SP: 軽量画像 + 固定サイズで合成コストを抑え、速度も上げる */
 @media (max-width: 640px) {
+  .marquee-track {
+    height: 133px;
+  }
+
   .marquee {
-    animation-duration: 18s;
+    animation-duration: 14s;
   }
 
   .marquee img {

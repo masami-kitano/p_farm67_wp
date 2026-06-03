@@ -26,30 +26,18 @@ function farm67_img(string $path): string
 }
 
 /**
- * フッターマーキー用 img 属性（SP 向け軽量画像を picture で出し分け）。
- *
- * @return array{src: string, mobile_src: string|null, width: int, height: int}
+ * フッターマーキー用画像 URL（表示サイズに合わせた軽量版を優先）。
  */
-function farm67_marquee_img_attrs(string $filename): array
+function farm67_marquee_img(string $filename): string
 {
   $marquee_path =
     get_template_directory() . '/assets/images/marquee/' . ltrim($filename, '/');
 
   if (is_readable($marquee_path)) {
-    return [
-      'src' => farm67_img($filename),
-      'mobile_src' => farm67_img('marquee/' . $filename),
-      'width' => 400,
-      'height' => 267,
-    ];
+    return farm67_img('marquee/' . $filename);
   }
 
-  return [
-    'src' => farm67_img($filename),
-    'mobile_src' => null,
-    'width' => 3000,
-    'height' => 2000,
-  ];
+  return farm67_img($filename);
 }
 
 /**
