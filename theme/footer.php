@@ -40,12 +40,12 @@ $farm67_marquee_images = array_merge($farm67_access_images, $farm67_access_image
   </div>
 
   <div class="pt-20 px-5 xl:px-35 flex lg:flex-row flex-col lg:items-end items-center justify-between">
-    <div class="hidden lg:flex flex-col items-center justify-center bg-white border rounded-2xl px-7 pt-8.75 pb-4 border-foreground border-2">
+    <div class="hidden lg:flex group flex-col items-center justify-center bg-white border rounded-2xl px-7 pt-8.75 pb-4 border-foreground border-2">
       <a
         href="https://www.yumemap.net/"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-block transition-opacity hover:opacity-70"
+        class="inline-block"
         aria-label="夢マップ"
       >
         <img
@@ -53,23 +53,15 @@ $farm67_marquee_images = array_merge($farm67_access_images, $farm67_access_image
           alt="夢マップ"
           class="h-auto w-80"
         />
-      </a>
-      <p class="pt-3 text-15 text-black-base whitespace-nowrap">
-        姫路市夢前町の観光ガイドマップ
+        <p class="pt-3 text-15 text-black-base whitespace-nowrap text-center">
+          姫路市夢前町の観光ガイドマップ
       </p>
-      <a
-        href="https://www.yumemap.net/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="self-end inline-block transition-opacity hover:opacity-70"
-        aria-label="夢マップ"
-      >
         <span
-          class="flex items-center justify-center rounded-full transition-all duration-300 group-hover:translate-x-1 <?php echo esc_attr(
+          class="flex items-end justify-end rounded-full transition-transform duration-300 group-hover:translate-x-1 <?php echo esc_attr(
             $farm67_b['circle_classes'],
           ); ?>"
         >
-          <svg class="h-7.5 w-7.5 text-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <svg class="-7.5 w-7.5 text-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4H3" />
           </svg>
         </span>
@@ -108,17 +100,9 @@ $farm67_marquee_images = array_merge($farm67_access_images, $farm67_access_image
           alt="夢マップ"
           class="h-auto w-80"
         />
-      </a>
-      <p class="pt-3 text-15 text-black-base whitespace-nowrap">
-        姫路市夢前町の観光ガイドマップ
-      </p>
-      <a
-        href="https://www.yumemap.net/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="self-end inline-block transition-opacity hover:opacity-70"
-        aria-label="夢マップ"
-      >
+        <p class="pt-3 text-15 text-black-base whitespace-nowrap">
+          姫路市夢前町の観光ガイドマップ
+        </p>
         <span
           class="flex items-center justify-center  rounded-full transition-all duration-300 group-hover:translate-x-1 <?php echo esc_attr(
             $farm67_b['circle_classes'],
