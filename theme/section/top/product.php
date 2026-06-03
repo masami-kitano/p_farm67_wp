@@ -26,7 +26,7 @@ if (!defined('ABSPATH')) {
       <div class="overflow-hidden rounded-2xl">
         <img src="<?php echo esc_url(
           farm67_img('product-main.jpg'),
-        ); ?>" alt="商品一覧" class="h-auto w-full object-cover" />
+        ); ?>" alt="商品一覧" class="h-auto w-full object-cover" loading="lazy" />
       </div>
     </div>
   </div>

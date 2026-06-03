@@ -53,7 +53,7 @@ $farm67_menu_cat_count = count($farm67_menu_categories);
                     farm67_img($farm67_main['image']),
                   ); ?>" alt="<?php echo esc_attr(
   $farm67_main['name'],
-); ?>" class="w-full rounded-2xl object-cover" />
+); ?>" class="w-full rounded-2xl object-cover" loading="lazy" />
                   <div class="flex flex-col gap-y-4">
                     <h2 class="text-22 md:text-24 text-foreground mt-5"><?php echo esc_html(
                       $farm67_main['name'],
@@ -82,7 +82,7 @@ $farm67_menu_cat_count = count($farm67_menu_categories);
                       farm67_img($farm67_item['image']),
                     ); ?>" alt="<?php echo esc_attr(
   $farm67_item['name'],
-); ?>" class="rounded-2xl object-cover w-full md:w-70" />
+); ?>" class="rounded-2xl object-cover w-full md:w-70" loading="lazy" />
                     <div class="flex flex-col gap-y-3 md:gap-y-2">
                       <p class="text-20 text-foreground"><?php echo esc_html(
                         $farm67_item['name'],
@@ -108,7 +108,7 @@ $farm67_menu_cat_count = count($farm67_menu_categories);
                   farm67_img($farm67_only['image']),
                 ); ?>" alt="<?php echo esc_attr(
   $farm67_only['name'],
-); ?>" class="aspect-[4/3] w-full object-cover" />
+); ?>" class="aspect-[4/3] w-full object-cover" loading="lazy" />
               </div>
               <div class="flex flex-col gap-y-3 md:w-1/2">
                 <p class="text-20 md:text-24 text-foreground"><?php echo esc_html(
@@ -136,7 +136,7 @@ $farm67_menu_cat_count = count($farm67_menu_categories);
                     farm67_img($farm67_main['image']),
                   ); ?>" alt="<?php echo esc_attr(
   $farm67_main['name'],
-); ?>" class="h-auto w-full rounded-2xl object-cover" />
+); ?>" class="h-auto w-full rounded-2xl object-cover" loading="lazy" />
                   <div class="relative flex flex-col gap-y-2">
                     <p class="text-20 md:text-24 text-foreground mt-1.5"><?php echo esc_html(
                       $farm67_main['name'],
@@ -164,7 +164,7 @@ $farm67_menu_cat_count = count($farm67_menu_categories);
                       farm67_img($farm67_item['image']),
                     ); ?>" alt="<?php echo esc_attr(
   $farm67_item['name'],
-); ?>" class="h-auto w-full rounded-2xl object-cover" />
+); ?>" class="h-auto w-full rounded-2xl object-cover" loading="lazy" />
                     <p class="text-22 md:text-16 text-foreground mt-1.5"><?php echo esc_html(
                       $farm67_item['name'],
                     ); ?></p>

@@ -61,10 +61,10 @@ $farm67_schedule_display = array_merge($farm67_schedule_cards, $farm67_schedule_
       <div class="px-gutter-sm-5 lg:px-gutter-lg-20 flex justify-center">
         <img src="<?php echo esc_url(
           farm67_img('pc-schedule-title.svg'),
-        ); ?>" alt="スケジュールタイトル" width="853" height="45" class="hidden md:block" />
+        ); ?>" alt="スケジュールタイトル" width="853" height="45" class="hidden md:block" loading="lazy" />
         <img src="<?php echo esc_url(
           farm67_img('mb-schedule-title.svg'),
-        ); ?>" alt="スケジュールタイトル" width="289" height="46" class="block md:hidden w-100" />
+        ); ?>" alt="スケジュールタイトル" width="289" height="46" class="block md:hidden w-100" loading="lazy" />
       </div>
     </div>
 
@@ -86,7 +86,7 @@ $farm67_schedule_display = array_merge($farm67_schedule_cards, $farm67_schedule_
                         src="<?php echo esc_url(farm67_img($farm67_card['image'])); ?>"
                         alt="<?php echo esc_attr($farm67_card['alt']); ?>"
                         class="h-full w-full rounded-full object-contain"
-                        <?php echo $farm67_i < 2 ? 'fetchpriority="high"' : 'loading="lazy"'; ?>
+                        loading="lazy"
                       />
                     </div>
                     <div class="card-flip-back p-6" style="background-color: <?php echo esc_attr(
@@ -109,7 +109,7 @@ $farm67_schedule_display = array_merge($farm67_schedule_cards, $farm67_schedule_
                     src="<?php echo esc_url(farm67_img($farm67_card['image'])); ?>"
                     alt="<?php echo esc_attr($farm67_card['alt']); ?>"
                     class="relative z-0 h-full w-full rounded-full object-contain"
-                    <?php echo $farm67_i < 2 ? 'fetchpriority="high"' : 'loading="lazy"'; ?>
+                    loading="lazy"
                   />
                   <div
                     style="background-color: <?php echo esc_attr($farm67_card['color']); ?>F0;"

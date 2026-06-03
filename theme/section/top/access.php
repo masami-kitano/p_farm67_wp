@@ -49,7 +49,7 @@ if (!defined('ABSPATH')) {
           <div class="relative aspect-[5/4] w-full overflow-hidden rounded-2xl">
             <img src="<?php echo esc_url(
               farm67_img('access-main.jpg'),
-            ); ?>" alt="夢街道 Farm67の店舗外観" class="absolute inset-0 h-full w-full object-cover" />
+            ); ?>" alt="夢街道 Farm67の店舗外観" class="absolute inset-0 h-full w-full object-cover" loading="lazy" />
           </div>
         </div>
       </div>

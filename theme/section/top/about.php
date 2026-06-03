@@ -58,6 +58,7 @@ if (!defined('ABSPATH')) {
               src="<?php echo esc_url(farm67_img('about-01.jpg')); ?>"
               alt="about"
               class="md:w-120 lg:w-140 rounded-2xl h-auto object-cover"
+              loading="lazy"
             />
           </div>
         </div>
@@ -65,19 +66,24 @@ if (!defined('ABSPATH')) {
 
       <div class="mt-16 grid grid-cols-1 gap-y-6 md:hidden">
         <div data-reveal>
-          <img src="<?php echo esc_url(
-            farm67_img('about-01.jpg'),
-          ); ?>" alt="" class="rounded-2xl h-auto w-full object-cover" />
+          <picture>
+            <source srcset="<?php echo esc_url(
+              farm67_img('about-01.webp'),
+            ); ?>" type="image/webp">
+            <img src="<?php echo esc_url(
+              farm67_img('about-01.jpg'),
+            ); ?>" alt="" class="rounded-2xl h-auto w-full object-cover" loading="lazy" />
+          </picture>
         </div>
         <div data-reveal>
           <img src="<?php echo esc_url(
             farm67_img('about-02.jpg'),
-          ); ?>" alt="" class="rounded-2xl h-auto w-full object-cover" />
+          ); ?>" alt="" class="rounded-2xl h-auto w-full object-cover" loading="lazy" />
         </div>
         <div data-reveal>
           <img src="<?php echo esc_url(
             farm67_img('about-03.jpg'),
-          ); ?>" alt="" class="rounded-2xl h-auto w-full object-cover" />
+          ); ?>" alt="" class="rounded-2xl h-auto w-full object-cover" loading="lazy" />
         </div>
       </div>
 
@@ -93,6 +99,7 @@ if (!defined('ABSPATH')) {
               src="<?php echo esc_url(farm67_img('about-02.jpg')); ?>"
               alt=""
               class="rounded-2xl h-auto w-full justify-self-end object-cover md:w-auto"
+              loading="lazy"
             />
           </div>
           <div data-reveal data-reveal-delay="150">
@@ -100,6 +107,7 @@ if (!defined('ABSPATH')) {
               src="<?php echo esc_url(farm67_img('about-03.jpg')); ?>"
               alt=""
               class="md:w-120 rounded-2xl h-auto w-full justify-self-start object-cover"
+              loading="lazy"
             />
           </div>
         </div>

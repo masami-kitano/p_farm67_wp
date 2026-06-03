@@ -38,7 +38,7 @@ $farm67_dogrun_slides = [
                     src="<?php echo esc_url(farm67_img($farm67_slide['src'])); ?>"
                     alt="<?php echo esc_attr($farm67_slide['alt']); ?>"
                     class="absolute inset-0 h-full w-full object-cover"
-                    <?php echo $farm67_i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'; ?>
+                    loading="lazy"
                   />
                 </div>
               </div>

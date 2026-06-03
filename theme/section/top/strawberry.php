@@ -32,7 +32,7 @@ while (count($farm67_strawberry_display) < 14) {
       <div class="flex justify-center">
         <img src="<?php echo esc_url(
           farm67_img('strawberry-title.svg'),
-        ); ?>" alt="いちごタイトル" width="280" height="124" />
+        ); ?>" alt="いちごタイトル" width="280" height="124" loading="lazy" />
       </div>
 
       <div class="strawberry-swiper-container">
