@@ -111,7 +111,7 @@ body {
 .marquee {
   display: flex;
   width: max-content;
-  animation: marquee 35s linear infinite;
+  animation: marquee 42s linear infinite;
   animation-play-state: paused;
 }
 
@@ -133,7 +133,7 @@ body {
   }
 
   .marquee {
-    animation-duration: 14s;
+    animation-duration: 17s;
   }
 
   .marquee img {
