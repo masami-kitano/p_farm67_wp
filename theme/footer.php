@@ -29,13 +29,27 @@ $farm67_marquee_images = array_merge($farm67_access_images, $farm67_access_image
   <div class="relative flex overflow-hidden">
     <div class="marquee flex whitespace-nowrap">
       <?php foreach ($farm67_marquee_images as $farm67_src): ?>
-        <img
-          src="<?php echo esc_url(farm67_img($farm67_src)); ?>"
-          alt=""
-          class="flex-shrink-0 object-cover"
-          loading="lazy"
-          decoding="async"
-        />
+        <?php $farm67_marquee = farm67_marquee_img_attrs($farm67_src); ?>
+        <?php if ($farm67_marquee['mobile_src'] !== null): ?>
+        <picture>
+          <source
+            media="(max-width: 640px)"
+            srcset="<?php echo esc_url($farm67_marquee['mobile_src']); ?>"
+          />
+        <?php endif; ?>
+          <img
+            src="<?php echo esc_url($farm67_marquee['src']); ?>"
+            width="<?php echo (int) $farm67_marquee['width']; ?>"
+            height="<?php echo (int) $farm67_marquee['height']; ?>"
+            alt=""
+            class="flex-shrink-0 object-cover"
+            loading="lazy"
+            decoding="async"
+            fetchpriority="low"
+          />
+        <?php if ($farm67_marquee['mobile_src'] !== null): ?>
+        </picture>
+        <?php endif; ?>
       <?php endforeach; ?>
     </div>
   </div>
@@ -101,11 +115,11 @@ $farm67_marquee_images = array_merge($farm67_access_images, $farm67_access_image
           alt="夢マップ"
           class="h-auto w-80"
         />
-        <p class="pt-3 text-15 text-black-base whitespace-nowrap">
+        <p class="pt-3 text-15 text-black-base whitespace-nowrap text-center">
           姫路市夢前町の観光ガイドマップ
         </p>
         <span
-          class="flex items-center justify-center  rounded-full transition-all duration-300 group-hover:translate-x-1 <?php echo esc_attr(
+          class="flex items-end justify-end rounded-full transition-all duration-300 group-hover:translate-x-1 <?php echo esc_attr(
             $farm67_b['circle_classes'],
           ); ?>"
         >

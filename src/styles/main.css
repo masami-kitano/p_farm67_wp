@@ -108,40 +108,35 @@ body {
   width: max-content;
   animation: marquee 50s linear infinite;
   will-change: transform;
-  transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
 }
-@media (max-width: 640px) {
-  .marquee {
-    animation-duration: 28s;
-  }
-
-  .marquee img {
-    width: 200px;
-  }
-}
-
 
 .marquee img {
   width: 400px;
-  height: auto;
+  height: 267px;
   flex-shrink: 0;
   margin: 0;
   padding: 0;
   object-fit: cover;
   display: block;
+  pointer-events: none;
 }
 
+.marquee picture {
+  flex-shrink: 0;
+  display: block;
+}
 
-/* iPhone など狭い画面では合成レイヤーを軽くするため画像を縮小し、
-   テクスチャ面積を抑えることでマーキーのカクつきを防ぐ。 */
+/* SP: 軽量画像 + 固定サイズで合成コストを抑え、速度も上げる */
 @media (max-width: 640px) {
   .marquee {
-    animation-duration: 28s;
+    animation-duration: 18s;
   }
 
   .marquee img {
     width: 200px;
+    height: 133px;
   }
 }
 
