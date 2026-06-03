@@ -58,6 +58,7 @@ $farm67_characters = [
             </div>
 
             <h3 class="text-16 text-black-base md:text-18 mb-3 flex items-center gap-1 font-bold">
+            <span class="text-13 leading-none items-end">©</span>
               <?php echo esc_html($farm67_character['name']); ?>
             </h3>
 
@@ -67,13 +68,14 @@ $farm67_characters = [
               ); ?></p>
             <?php endif; ?>
 
-            <p class="text-13 text-black-base md:text-14 leading-relaxed"><?php
-            echo wp_kses($farm67_character['description'], [
-              'br' => [
-                'class' => true,
+            <p class="text-13 text-black-base md:text-14 leading-relaxed"><?php echo wp_kses(
+              $farm67_character['description'],
+              [
+                'br' => [
+                  'class' => true,
+                ],
               ],
-            ]);
-            ?></p>
+            ); ?></p>
           </div>
         </div>
       <?php endforeach; ?>
