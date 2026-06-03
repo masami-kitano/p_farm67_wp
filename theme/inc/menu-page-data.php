@@ -1,10 +1,12 @@
 <?php
 /**
- * メニューデータ（トップページの section/top/menu.php 用）
+ * メニューページ専用データ（下層 /menu/ ページ用）
  *
- * 下層メニューページ（/menu/）は inc/menu-page-data.php で別管理。
- * ただし価格の表示可否（farm67_show_prices）と価格フォーマット
- * （farm67_format_price）は両ページ共通の関数としてここで定義する。
+ * トップページのメニュー（section/top/menu.php・inc/menu-data.php）とは
+ * 独立して管理する。ここを編集してもトップページには影響しない。
+ *
+ * 価格の表示可否（farm67_show_prices）と価格フォーマット
+ * （farm67_format_price）は inc/menu-data.php の共通関数を利用する。
  *
  * @package Farm67_Theme
  */
@@ -14,11 +16,11 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * メニュー商品一覧を返す。
+ * メニューページの商品一覧を返す。
  *
  * @return array<int, array<string, mixed>>
  */
-function farm67_menu_items(): array
+function farm67_menu_page_items(): array
 {
   return [
     [
@@ -38,12 +40,12 @@ function farm67_menu_items(): array
       'price' => 1780,
     ],
     [
-      'name' => '抹茶沼パラダイス',
-      'image' => 'menus/sweet-04.jpg',
+      'name' => 'ゆめさき苺ミルクかき氷',
+      'image' => 'menus/yumesaki-ichigo-milk.jpg',
       'category' => 'sweets',
       'description' =>
-        '抹茶好きさんにぜひ食べてほしい！超濃厚抹茶ピンス。姫路の老舗お茶屋さん「こばやし茶店」さんのこだわりのお抹茶を贅沢に使用しています。',
-      'price' => 1680,
+        "",
+      'price' => 1780,
     ],
     [
       'name' => '夢みるきなこのかき氷',
@@ -52,6 +54,38 @@ function farm67_menu_items(): array
       'description' =>
         '低温でじっくり焙煎した夢みるきなこをたっぷり乗せたふわっふわかき氷。大豆の風味が口の中に広がってミルク氷との相性も抜群！みたらしソースか黒蜜ソースが選べます♪',
       'price' => 1380,
+    ],
+    [
+      'name' => 'ゆめさきトウモロコシかき氷',
+      'image' => 'menus/sweet-06.jpg',
+      'category' => 'sweets',
+      'description' =>
+        '',
+      'price' => 1380,
+    ],
+    [
+      'name' => 'おシャインピンス',
+      'image' => 'menus/sweet-02.jpg',
+      'category' => 'sweets',
+      'description' =>
+        '',
+      'price' => 1680,
+    ],
+    [
+      'name' => '抹茶沼パラダイス',
+      'image' => 'menus/sweet-04.jpg',
+      'category' => 'sweets',
+      'description' =>
+        '抹茶好きさんにぜひ食べてほしい！超濃厚抹茶ピンス。姫路の老舗お茶屋さん「こばやし茶店」さんのこだわりのお抹茶を贅沢に使用しています。',
+      'price' => 1680,
+    ],
+    [
+      'name' => '珈琲ピンスに恋をして',
+      'image' => 'menus/sweet-05.jpg',
+      'category' => 'sweets',
+      'description' =>
+        '',
+      'price' => 1680,
     ],
     [
       'name' => 'COSTAコーヒー',
@@ -72,11 +106,11 @@ function farm67_menu_items(): array
 }
 
 /**
- * メニューカテゴリ一覧を返す。
+ * メニューページのカテゴリ一覧を返す。
  *
  * @return array<int, array<string, string>>
  */
-function farm67_menu_categories(): array
+function farm67_menu_page_categories(): array
 {
   return [
     [
@@ -105,51 +139,4 @@ function farm67_menu_categories(): array
       'description' => 'お仕事の合間やティータイムにほっとひと息いかがですか？',
     ],
   ];
-}
-
-/**
- * 指定カテゴリの商品のみを返す。
- *
- * @return array<int, array<string, mixed>>
- */
-function farm67_menu_items_by_category(string $category): array
-{
-  return array_values(
-    array_filter(
-      farm67_menu_items(),
-      static fn($item) => $item['category'] === $category,
-    ),
-  );
-}
-
-/**
- * 価格を表示するかどうか。
- *
- * 金額改定中は false にして全ての価格を非表示にする。
- * 再表示する際は true に戻すだけでよい。
- */
-function farm67_show_prices(): bool
-{
-  return false;
-}
-
-/**
- * 価格フォーマット（数値・文字列・未設定に対応。先頭に「¥」を付与）。
- *
- * - int / 数字のみの文字列: number_format して「¥1,000」
- * - 「¥350〜」等の文字列  : そのまま表示（「¥」が無ければ付与）
- * - null / 空文字         : 「¥0000」
- *
- * @param int|string|null $price
- */
-function farm67_format_price($price): string
-{
-  if ($price === null || $price === '') {
-    return '¥0000';
-  }
-  if (is_int($price) || ctype_digit((string) $price)) {
-    return '¥' . number_format((int) $price);
-  }
-  $price = trim((string) $price);
-  return strpos($price, '¥') !== false ? $price : '¥' . $price;
 }

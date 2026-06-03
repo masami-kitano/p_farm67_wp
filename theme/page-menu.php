@@ -6,9 +6,9 @@
  * @package Farm67_Theme
  */
 
-// メニューデータは inc/menu-data.php に集約（トップのメニューと共通）。
-$farm67_menu_items = farm67_menu_items();
-$farm67_menu_categories = farm67_menu_categories();
+// メニューページ専用データ（inc/menu-page-data.php）で管理。トップとは独立。
+$farm67_menu_items = farm67_menu_page_items();
+$farm67_menu_categories = farm67_menu_page_categories();
 
 get_header();
 ?>
@@ -19,8 +19,8 @@ get_header();
       <div class="absolute left-1/2 top-0 h-[1840px] w-[1840px] -translate-x-1/2 rounded-t-[100%] bg-gradient-to-t from-[#FFFCF1] to-[#F8F1D9]"></div>
     </div>
     <div class="mx-4 md:mx-12">
-      <div class="relative mx-auto max-w-[1200px] py-24 lg:flex lg:gap-20">
-        <aside class="lg:w-45.5 hidden lg:block">
+      <div class="relative mx-auto max-w-370 py-24 lg:flex lg:gap-20">
+        <aside class="lg:w-60 hidden lg:block">
           <div class="top-51.25 sticky">
             <div class="rounded-3xl bg-[#D84830] px-12 py-10 text-white">
               <ul class="text-18 flex flex-col gap-4 font-semibold">
@@ -42,7 +42,7 @@ get_header();
           </div>
         </aside>
 
-        <div class="flex flex-col">
+        <div class="flex flex-col flex-1">
           <div data-reveal>
             <?php farm67_heading([
               'title' => 'menu',
@@ -50,11 +50,6 @@ get_header();
               'color' => 'orange',
               'icon' => 'menu',
             ]); ?>
-          </div>
-
-          <div data-reveal data-reveal-delay="100">
-            <p class="text-14 text-foreground md:text-16 lg:text-18 mt-8 md:mt-10">
-            </p>
           </div>
 
           <div class="mt-15 gap-y-15 flex flex-col md:mt-20 md:gap-y-24 lg:gap-y-20">
@@ -80,37 +75,42 @@ get_header();
                   </div>
                 </div>
 
-<?php if (count($farm67_items) === 1):
-                  $farm67_item = $farm67_items[0]; ?>
+<?php
+                $farm67_featured = $farm67_items[0] ?? null;
+                $farm67_rest = array_slice($farm67_items, 1);
+                ?>
+                <?php if ($farm67_featured): ?>
                   <div data-reveal data-reveal-delay="100">
                     <div class="flex flex-col gap-y-6 overflow-hidden rounded-3xl bg-white p-5 md:flex-row md:items-center md:gap-x-10 md:p-8 lg:p-10">
                       <div class="overflow-hidden rounded-2xl md:w-1/2 lg:w-[55%]">
                         <img src="<?php echo esc_url(
-                          farm67_img($farm67_item['image']),
+                          farm67_img($farm67_featured['image']),
                         ); ?>" alt="<?php echo esc_attr(
-  $farm67_item['name'],
+  $farm67_featured['name'],
 ); ?>" class="aspect-[4/3] w-full object-cover" loading="lazy" />
                       </div>
                       <div class="flex flex-col gap-y-4 md:w-1/2 lg:w-[45%]">
                         <h2 class="text-20 text-foreground md:text-24 lg:text-28"><?php echo esc_html(
-                          $farm67_item['name'],
+                          $farm67_featured['name'],
                         ); ?></h2>
+                        <?php if (($farm67_featured['description'] ?? '') !== ''): ?>
                         <p class="text-16 text-black-base whitespace-pre-line leading-relaxed"><?php echo esc_html(
-                          ($farm67_item['description'] ?? '') !== ''
-                            ? $farm67_item['description']
-                            : 'テキストが入ります。',
+                          $farm67_featured['description'],
                         ); ?></p>
+                        <?php endif; ?>
                         <?php if (farm67_show_prices()): ?>
                         <p class="text-20 text-black-base"><?php echo esc_html(
-                          farm67_format_price($farm67_item['price'] ?? null),
+                          farm67_format_price($farm67_featured['price'] ?? null),
                         ); ?></p>
                         <?php endif; ?>
                       </div>
                     </div>
                   </div>
-                <?php else: ?>
+                <?php endif; ?>
+
+                <?php if (!empty($farm67_rest)): ?>
                 <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:gap-x-8 md:gap-y-12 lg:grid-cols-3 lg:gap-x-10 lg:gap-y-14">
-                  <?php foreach ($farm67_items as $farm67_i => $farm67_item): ?>
+                  <?php foreach ($farm67_rest as $farm67_i => $farm67_item): ?>
                     <div data-reveal data-reveal-delay="<?php echo (int) ($farm67_i * 100); ?>">
                       <div class="flex flex-col gap-y-3">
                         <div class="overflow-hidden rounded-2xl">
@@ -123,11 +123,11 @@ get_header();
                         <h2 class="text-16 text-foreground md:text-22 mt-5"><?php echo esc_html(
                           $farm67_item['name'],
                         ); ?></h2>
+                        <?php if (($farm67_item['description'] ?? '') !== ''): ?>
                         <p class="text-16 text-black-base whitespace-pre-line"><?php echo esc_html(
-                          ($farm67_item['description'] ?? '') !== ''
-                            ? $farm67_item['description']
-                            : 'テキストが入ります。',
+                          $farm67_item['description'],
                         ); ?></p>
+                        <?php endif; ?>
                         <?php if (farm67_show_prices()): ?>
                         <p class="text-20 text-black-base"><?php echo esc_html(
                           farm67_format_price($farm67_item['price'] ?? null),

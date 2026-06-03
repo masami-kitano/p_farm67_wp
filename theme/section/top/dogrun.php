@@ -14,9 +14,6 @@ $farm67_dogrun_slides = [
   ['src' => 'dogrun-02.jpg', 'alt' => 'ドッグランの様子2'],
   ['src' => 'dogrun-03.jpg', 'alt' => 'ドッグランの様子3'],
 ];
-
-$farm67_posts_page = (int) get_option('page_for_posts');
-$farm67_news_url = $farm67_posts_page ? get_permalink($farm67_posts_page) : home_url('/news/');
 ?>
 <section id="dogrun" class="bg-foreground px-gutter-sm-5 lg:px-gutter-lg-20 relative flex flex-col gap-10 text-white md:gap-20">
   <div class="flex flex-col gap-y-8 md:gap-y-10">
@@ -100,15 +97,6 @@ $farm67_news_url = $farm67_posts_page ? get_permalink($farm67_posts_page) : home
           ※受付時に、一年以内の狂犬病、5種以上の混合ワクチン接種証明書（コピー可）のご提示をお願いいたします。<br />
           ※お得な回数券もございます
         </p>
-        <div class="flex justify-center">
-          <?php farm67_pill_button([
-            'href' => $farm67_news_url,
-            'label' => 'View more',
-            'font_class' => 'font-en',
-            'variant_classes' => 'border-white text-white hover:bg-white hover:text-foreground',
-            'circle_classes' => 'bg-white text-foreground',
-          ]); ?>
-        </div>
       </div>
     </div>
   </div>

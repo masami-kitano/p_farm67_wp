@@ -23,6 +23,12 @@ $farm67_instagram_url = apply_filters('farm67_instagram_url', 'https://www.insta
 <head>
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="<?php echo esc_url(
+    get_template_directory_uri() . '/favicon.png',
+  ); ?>">
+  <link rel="apple-touch-icon" href="<?php echo esc_url(
+    get_template_directory_uri() . '/favicon.png',
+  ); ?>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Notable&family=Rubik:wght@300;400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
