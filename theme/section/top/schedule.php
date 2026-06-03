@@ -82,12 +82,12 @@ $farm67_schedule_display = array_merge($farm67_schedule_cards, $farm67_schedule_
                 >
                   <div class="card-flip-inner">
                     <div class="card-flip-front h-full w-full">
-                      <img
-                        src="<?php echo esc_url(farm67_img($farm67_card['image'])); ?>"
-                        alt="<?php echo esc_attr($farm67_card['alt']); ?>"
-                        class="h-full w-full rounded-full object-contain"
-                        loading="lazy"
-                      />
+                      <?php farm67_picture([
+                        'src' => $farm67_card['image'],
+                        'alt' => $farm67_card['alt'],
+                        'class' => 'h-full w-full rounded-full object-contain',
+                        'loading' => 'lazy',
+                      ]); ?>
                     </div>
                     <div class="card-flip-back p-6" style="background-color: <?php echo esc_attr(
                       $farm67_card['color'],
@@ -105,12 +105,12 @@ $farm67_schedule_display = array_merge($farm67_schedule_cards, $farm67_schedule_
                 </div>
 
                 <div class="group relative isolate hidden overflow-hidden rounded-full min-[768px]:block">
-                  <img
-                    src="<?php echo esc_url(farm67_img($farm67_card['image'])); ?>"
-                    alt="<?php echo esc_attr($farm67_card['alt']); ?>"
-                    class="relative z-0 h-full w-full rounded-full object-contain"
-                    loading="lazy"
-                  />
+                  <?php farm67_picture([
+                    'src' => $farm67_card['image'],
+                    'alt' => $farm67_card['alt'],
+                    'class' => 'relative z-0 h-full w-full rounded-full object-contain',
+                    'loading' => 'lazy',
+                  ]); ?>
                   <div
                     style="background-color: <?php echo esc_attr($farm67_card['color']); ?>F0;"
                     class="pointer-events-none absolute inset-0 z-[1] flex items-center justify-center overflow-hidden rounded-full p-8 opacity-0 transition-opacity duration-300 min-[768px]:group-hover:pointer-events-auto min-[768px]:group-hover:opacity-100"

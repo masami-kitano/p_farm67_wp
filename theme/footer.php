@@ -29,15 +29,22 @@ $farm67_marquee_images = array_merge($farm67_access_images, $farm67_access_image
   <div class="marquee-track relative overflow-hidden">
     <div class="marquee flex whitespace-nowrap">
       <?php foreach ($farm67_marquee_images as $farm67_src): ?>
-        <img
-          src="<?php echo esc_url(farm67_marquee_img($farm67_src)); ?>"
-          width="400"
-          height="267"
-          alt=""
-          class="flex-shrink-0 object-cover"
-          loading="lazy"
-          decoding="async"
-        />
+        <?php
+        $farm67_marquee_rel = is_readable(
+          get_template_directory() . '/assets/images/marquee/' . $farm67_src,
+        )
+          ? 'marquee/' . $farm67_src
+          : $farm67_src;
+        farm67_picture([
+          'src' => $farm67_marquee_rel,
+          'alt' => '',
+          'class' => 'flex-shrink-0 object-cover',
+          'width' => 400,
+          'height' => 267,
+          'loading' => 'lazy',
+          'decoding' => 'async',
+        ]);
+        ?>
       <?php endforeach; ?>
     </div>
   </div>

@@ -21,18 +21,20 @@ $farm67_kv_images = [
       <div class="swiper-wrapper">
         <?php foreach ($farm67_kv_images as $farm67_i => $farm67_image): ?>
           <div class="swiper-slide relative h-full w-full">
-            <img
-              src="<?php echo esc_url(farm67_img($farm67_image['sp'])); ?>"
-              alt="Key Visual <?php echo (int) $farm67_i + 1; ?>"
-              class="absolute inset-0 h-full w-full object-cover object-[center_35%] md:hidden"
-              <?php echo $farm67_i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'; ?>
-            />
-            <img
-              src="<?php echo esc_url(farm67_img($farm67_image['pc'])); ?>"
-              alt="Key Visual <?php echo (int) $farm67_i + 1; ?>"
-              class="absolute inset-0 hidden h-full w-full object-cover object-center md:block"
-              <?php echo $farm67_i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'; ?>
-            />
+            <?php farm67_picture([
+              'src' => $farm67_image['sp'],
+              'alt' => 'Key Visual ' . ((int) $farm67_i + 1),
+              'class' => 'absolute inset-0 h-full w-full object-cover object-[center_35%] md:hidden',
+              'loading' => $farm67_i === 0 ? '' : 'lazy',
+              'fetchpriority' => $farm67_i === 0 ? 'high' : '',
+            ]); ?>
+            <?php farm67_picture([
+              'src' => $farm67_image['pc'],
+              'alt' => 'Key Visual ' . ((int) $farm67_i + 1),
+              'class' => 'absolute inset-0 hidden h-full w-full object-cover object-center md:block',
+              'loading' => $farm67_i === 0 ? '' : 'lazy',
+              'fetchpriority' => $farm67_i === 0 ? 'high' : '',
+            ]); ?>
             <div class="pointer-events-none absolute inset-x-0 bottom-0 h-[35%] bg-gradient-to-t from-[#FFFCF1] via-[#FFFCF1] to-transparent"></div>
           </div>
         <?php endforeach; ?>

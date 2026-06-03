@@ -34,12 +34,12 @@ $farm67_dogrun_slides = [
             <?php foreach ($farm67_dogrun_slides as $farm67_i => $farm67_slide): ?>
               <div class="swiper-slide">
                 <div class="relative aspect-square overflow-hidden rounded-2xl">
-                  <img
-                    src="<?php echo esc_url(farm67_img($farm67_slide['src'])); ?>"
-                    alt="<?php echo esc_attr($farm67_slide['alt']); ?>"
-                    class="absolute inset-0 h-full w-full object-cover"
-                    loading="lazy"
-                  />
+                  <?php farm67_picture([
+                    'src' => $farm67_slide['src'],
+                    'alt' => $farm67_slide['alt'],
+                    'class' => 'absolute inset-0 h-full w-full object-cover',
+                    'loading' => 'lazy',
+                  ]); ?>
                 </div>
               </div>
             <?php endforeach; ?>

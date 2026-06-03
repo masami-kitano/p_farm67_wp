@@ -49,11 +49,12 @@ $farm67_menu_cat_count = count($farm67_menu_categories);
             <?php if ($farm67_main): ?>
               <div data-reveal data-reveal-delay="100">
                 <div class="flex flex-col gap-y-3">
-                  <img src="<?php echo esc_url(
-                    farm67_img($farm67_main['image']),
-                  ); ?>" alt="<?php echo esc_attr(
-  $farm67_main['name'],
-); ?>" class="w-full rounded-2xl object-cover" loading="lazy" />
+                  <?php farm67_picture([
+                    'src' => $farm67_main['image'],
+                    'alt' => $farm67_main['name'],
+                    'class' => 'w-full rounded-2xl object-cover',
+                    'loading' => 'lazy',
+                  ]); ?>
                   <div class="flex flex-col gap-y-4">
                     <h2 class="text-22 md:text-24 text-foreground mt-5"><?php echo esc_html(
                       $farm67_main['name'],
@@ -78,11 +79,12 @@ $farm67_menu_cat_count = count($farm67_menu_categories);
               <?php foreach ($farm67_subs as $farm67_si => $farm67_item): ?>
                 <div data-reveal data-reveal-delay="<?php echo (int) (200 + $farm67_si * 100); ?>">
                   <div class="flex flex-col gap-6 md:flex-row">
-                    <img src="<?php echo esc_url(
-                      farm67_img($farm67_item['image']),
-                    ); ?>" alt="<?php echo esc_attr(
-  $farm67_item['name'],
-); ?>" class="rounded-2xl object-cover w-full md:w-70" loading="lazy" />
+                    <?php farm67_picture([
+                      'src' => $farm67_item['image'],
+                      'alt' => $farm67_item['name'],
+                      'class' => 'rounded-2xl object-cover w-full md:w-70',
+                      'loading' => 'lazy',
+                    ]); ?>
                     <div class="flex flex-col gap-y-3 md:gap-y-2">
                       <p class="text-20 text-foreground"><?php echo esc_html(
                         $farm67_item['name'],
@@ -104,11 +106,12 @@ $farm67_menu_cat_count = count($farm67_menu_categories);
           <div data-reveal data-reveal-delay="100">
             <div class="flex flex-col gap-6 overflow-hidden rounded-2xl bg-white p-5 md:flex-row md:items-center md:gap-10 md:p-8">
               <div class="overflow-hidden rounded-2xl md:w-1/2">
-                <img src="<?php echo esc_url(
-                  farm67_img($farm67_only['image']),
-                ); ?>" alt="<?php echo esc_attr(
-  $farm67_only['name'],
-); ?>" class="aspect-[4/3] w-full object-cover" loading="lazy" />
+                <?php farm67_picture([
+                  'src' => $farm67_only['image'],
+                  'alt' => $farm67_only['name'],
+                  'class' => 'aspect-[4/3] w-full object-cover',
+                  'loading' => 'lazy',
+                ]); ?>
               </div>
               <div class="flex flex-col gap-y-3 md:w-1/2">
                 <p class="text-20 md:text-24 text-foreground"><?php echo esc_html(
@@ -132,11 +135,12 @@ $farm67_menu_cat_count = count($farm67_menu_categories);
             <?php if ($farm67_main): ?>
               <div data-reveal data-reveal-delay="100">
                 <div class="flex flex-col gap-y-4">
-                  <img src="<?php echo esc_url(
-                    farm67_img($farm67_main['image']),
-                  ); ?>" alt="<?php echo esc_attr(
-  $farm67_main['name'],
-); ?>" class="h-auto w-full rounded-2xl object-cover" loading="lazy" />
+                  <?php farm67_picture([
+                    'src' => $farm67_main['image'],
+                    'alt' => $farm67_main['name'],
+                    'class' => 'h-auto w-full rounded-2xl object-cover',
+                    'loading' => 'lazy',
+                  ]); ?>
                   <div class="relative flex flex-col gap-y-2">
                     <p class="text-20 md:text-24 text-foreground mt-1.5"><?php echo esc_html(
                       $farm67_main['name'],
@@ -160,11 +164,12 @@ $farm67_menu_cat_count = count($farm67_menu_categories);
               <?php foreach ($farm67_subs as $farm67_si => $farm67_item): ?>
                 <div data-reveal data-reveal-delay="<?php echo (int) (200 + $farm67_si * 100); ?>">
                   <div class="flex flex-col gap-y-1">
-                    <img src="<?php echo esc_url(
-                      farm67_img($farm67_item['image']),
-                    ); ?>" alt="<?php echo esc_attr(
-  $farm67_item['name'],
-); ?>" class="h-auto w-full rounded-2xl object-cover" loading="lazy" />
+                    <?php farm67_picture([
+                      'src' => $farm67_item['image'],
+                      'alt' => $farm67_item['name'],
+                      'class' => 'h-auto w-full rounded-2xl object-cover',
+                      'loading' => 'lazy',
+                    ]); ?>
                     <p class="text-22 md:text-16 text-foreground mt-1.5"><?php echo esc_html(
                       $farm67_item['name'],
                     ); ?></p>

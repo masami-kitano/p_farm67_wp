@@ -83,11 +83,12 @@ get_header();
                   <div data-reveal data-reveal-delay="100">
                     <div class="flex flex-col gap-y-6 overflow-hidden rounded-3xl bg-white p-5 md:flex-row md:items-center md:gap-x-10 md:p-8 lg:p-10">
                       <div class="overflow-hidden rounded-2xl md:w-1/2 lg:w-[55%]">
-                        <img src="<?php echo esc_url(
-                          farm67_img($farm67_featured['image']),
-                        ); ?>" alt="<?php echo esc_attr(
-  $farm67_featured['name'],
-); ?>" class="aspect-[4/3] w-full object-cover" loading="lazy" />
+                        <?php farm67_picture([
+                          'src' => $farm67_featured['image'],
+                          'alt' => $farm67_featured['name'],
+                          'class' => 'aspect-[4/3] w-full object-cover',
+                          'loading' => 'lazy',
+                        ]); ?>
                       </div>
                       <div class="flex flex-col gap-y-4 md:w-1/2 lg:w-[45%]">
                         <h2 class="text-20 text-foreground md:text-24 lg:text-28"><?php echo esc_html(
@@ -114,11 +115,12 @@ get_header();
                     <div data-reveal data-reveal-delay="<?php echo (int) ($farm67_i * 100); ?>">
                       <div class="flex flex-col gap-y-3">
                         <div class="overflow-hidden rounded-2xl">
-                          <img src="<?php echo esc_url(
-                            farm67_img($farm67_item['image']),
-                          ); ?>" alt="<?php echo esc_attr(
-  $farm67_item['name'],
-); ?>" class="aspect-square w-full object-cover" loading="lazy" />
+                          <?php farm67_picture([
+                            'src' => $farm67_item['image'],
+                            'alt' => $farm67_item['name'],
+                            'class' => 'aspect-square w-full object-cover',
+                            'loading' => 'lazy',
+                          ]); ?>
                         </div>
                         <h2 class="text-16 text-foreground md:text-22 mt-5"><?php echo esc_html(
                           $farm67_item['name'],

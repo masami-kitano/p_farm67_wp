@@ -43,9 +43,11 @@ while (count($farm67_strawberry_display) < 14) {
                 <div class="strawberry-card-wrapper">
                   <div class="strawberry-card">
                     <div class="strawberry-card-image">
-                      <img src="<?php echo esc_url(
-                        farm67_img($farm67_item['image']),
-                      ); ?>" alt="<?php echo esc_attr($farm67_item['name']); ?>" loading="lazy" />
+                      <?php farm67_picture([
+                        'src' => $farm67_item['image'],
+                        'alt' => $farm67_item['name'],
+                        'loading' => 'lazy',
+                      ]); ?>
                     </div>
                   </div>
                 </div>

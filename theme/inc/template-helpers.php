@@ -132,6 +132,82 @@ function farm67_menu_category_icon(string $category): void
 }
 
 /**
+ * webp 優先の <picture> を出力する（元の jpg/png はフォールバック）。
+ *
+ * 同名の .webp が assets/images 配下に存在すれば <picture> を、無ければ
+ * 通常の <img> を出力する。<picture> はレイアウトへ影響しないよう
+ * display:contents（Tailwind の contents）にしている。
+ *
+ * @param array $args {
+ *   @type string     $src           farm67_img に渡す相対パス（例: 'menus/sweet-01.jpg'）。
+ *   @type string     $alt           代替テキスト。
+ *   @type string     $class         img のクラス。
+ *   @type string     $loading       'lazy' | 'eager' | ''（空なら付けない）。
+ *   @type string     $fetchpriority 'high' | ''（空なら付けない）。
+ *   @type int|string $width         （任意）。
+ *   @type int|string $height        （任意）。
+ *   @type string     $picture_class picture 要素の追加クラス（既定 'contents'）。
+ * }
+ */
+function farm67_picture(array $args = []): void
+{
+  $a = wp_parse_args($args, [
+    'src' => '',
+    'alt' => '',
+    'class' => '',
+    'loading' => 'lazy',
+    'fetchpriority' => '',
+    'decoding' => '',
+    'width' => '',
+    'height' => '',
+    'picture_class' => 'contents',
+  ]);
+
+  if ($a['src'] === '') {
+    return;
+  }
+
+  $webp_rel = preg_replace('/\.(jpe?g|png)$/i', '.webp', $a['src']);
+  $has_webp =
+    $webp_rel !== $a['src'] &&
+    is_readable(get_template_directory() . '/assets/images/' . ltrim($webp_rel, '/'));
+
+  $attr = 'src="' . esc_url(farm67_img($a['src'])) . '" alt="' . esc_attr($a['alt']) . '"';
+  if ($a['class'] !== '') {
+    $attr .= ' class="' . esc_attr($a['class']) . '"';
+  }
+  if ($a['width'] !== '') {
+    $attr .= ' width="' . esc_attr((string) $a['width']) . '"';
+  }
+  if ($a['height'] !== '') {
+    $attr .= ' height="' . esc_attr((string) $a['height']) . '"';
+  }
+  if ($a['loading'] !== '') {
+    $attr .= ' loading="' . esc_attr($a['loading']) . '"';
+  }
+  if ($a['fetchpriority'] !== '') {
+    $attr .= ' fetchpriority="' . esc_attr($a['fetchpriority']) . '"';
+  }
+  if ($a['decoding'] !== '') {
+    $attr .= ' decoding="' . esc_attr($a['decoding']) . '"';
+  }
+
+  if (!$has_webp) {
+    echo '<img ' . $attr . ' />'; // phpcs:ignore
+    return;
+  }
+
+  $pclass = trim('contents ' . ($a['picture_class'] === 'contents' ? '' : $a['picture_class']));
+  echo '<picture class="' .
+    esc_attr($pclass) .
+    '"><source srcset="' .
+    esc_url(farm67_img($webp_rel)) .
+    '" type="image/webp"><img ' .
+    $attr .
+    ' /></picture>'; // phpcs:ignore
+}
+
+/**
  * Instagram アイコン（色は currentColor で制御）。
  */
 function farm67_instagram_icon(string $class = 'w-6 h-6'): void

@@ -50,11 +50,12 @@ $farm67_characters = [
           $farm67_index * 100); ?>" class="h-full">
           <div class="rounded-4xl flex h-full flex-col items-center border-2 border-[#D8896B] bg-white px-6 py-10 text-center md:px-5 md:py-12">
             <div class="relative mb-4 aspect-square w-40 md:mb-6 md:w-48">
-              <img src="<?php echo esc_url(
-                farm67_img($farm67_character['image']),
-              ); ?>" alt="<?php echo esc_attr(
-  $farm67_character['name'],
-); ?>" class="absolute inset-0 h-full w-full object-contain" loading="lazy" />
+              <?php farm67_picture([
+                'src' => $farm67_character['image'],
+                'alt' => $farm67_character['name'],
+                'class' => 'absolute inset-0 h-full w-full object-contain',
+                'loading' => 'lazy',
+              ]); ?>
             </div>
 
             <h3 class="text-16 text-black-base md:text-18 mb-3 flex items-center gap-1 font-bold">
