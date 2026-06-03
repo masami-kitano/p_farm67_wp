@@ -15,21 +15,21 @@ $farm67_characters = [
     'ruby' => 'いちごだいまおう',
     'image' => 'chara-ichigo-daimao.png',
     'description' =>
-      'いちごについて説明とかしてくれるキャラ。<br class="hidden lg:block">あきひめが好きだったが最近はほしうららが推し。',
+      'いちごについて説明とかしてくれるキャラ。<br>あきひめが好きだったが最近は<br class="lg:hidden">ほしうららが推し。',
   ],
   [
     'name' => 'いも乙田いも夫',
     'ruby' => 'いもおだいもお',
     'image' => 'chara-imoodaimoo.png',
     'description' =>
-      'さつまいもを育てている腹巻きした青髭のさつまいもの妖精。<br class="hidden lg:block">焼き芋を焼いてくれる。',
+      'さつまいもを育てている腹巻きした青髭の<br class="lg:hidden">さつまいもの妖精。<br>焼き芋を焼いてくれる。',
   ],
   [
     'name' => 'おっSUN',
     'ruby' => 'おっサン',
     'image' => 'chara-ossan.png',
     'description' =>
-      '野菜のみんなが元気に育つための長重要人物。<br class="hidden lg:block">口癖は「オレに惚れたらヤケドするぜ？」',
+      '野菜のみんなが元気に育つための超重要人物。<br class="hidden lg:block">口癖は「オレに惚れたらヤケドするぜ？」',
   ],
 ];
 ?>
