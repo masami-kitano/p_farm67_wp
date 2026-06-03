@@ -111,6 +111,16 @@ body {
   transform: translateZ(0);
   backface-visibility: hidden;
 }
+@media (max-width: 640px) {
+  .marquee {
+    animation-duration: 28s;
+  }
+
+  .marquee img {
+    width: 200px;
+  }
+}
+
 
 .marquee img {
   width: 400px;
@@ -121,6 +131,7 @@ body {
   object-fit: cover;
   display: block;
 }
+
 
 /* iPhone など狭い画面では合成レイヤーを軽くするため画像を縮小し、
    テクスチャ面積を抑えることでマーキーのカクつきを防ぐ。 */
