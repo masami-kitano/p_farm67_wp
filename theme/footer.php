@@ -24,6 +24,7 @@ for ($i = 1; $i <= 14; $i++) {
 }
 $farm67_marquee_images = array_merge($farm67_access_images, $farm67_access_images);
 ?>
+
 <footer class="relative flex flex-col bg-[#E8E2C7]">
   <div class="relative flex overflow-hidden">
     <div class="marquee flex whitespace-nowrap">
