@@ -199,3 +199,4 @@ add_filter('farm67_instagram_url', 'farm67_set_instagram_url');
 require_once get_template_directory() . '/inc/template-helpers.php';
 require_once get_template_directory() . '/inc/menu-data.php';
 require_once get_template_directory() . '/inc/menu-page-data.php';
+require_once get_template_directory() . '/inc/seo.php';
