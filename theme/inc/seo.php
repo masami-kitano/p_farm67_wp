@@ -26,7 +26,7 @@ function farm67_brand_title(): string
  */
 function farm67_site_description(): string
 {
-  return '夢街道farm67では、一年を通して旬のスイーツや農業体験を楽しむことができます。';
+  return '農家直営カフェ 夢街道farm67';
 }
 
 /**
