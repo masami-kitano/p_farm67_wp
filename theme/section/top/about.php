@@ -1,119 +1,87 @@
 <?php
 /**
- * Top: About section
+ * Top About section
  *
- * @package Farm67_Theme
+ * @package PMedium_Theme
  */
 
 if (!defined('ABSPATH')) {
   exit();
-} ?>
-<section id="about" class="text-foreground">
-  <div class="lg:px-gutter-lg-20 relative px-5">
-    <div class="max-w-280 mx-auto">
-      <div class="grid grid-cols-1 gap-y-16 md:grid-cols-2 md:items-center md:gap-x-16">
-        <div class="flex flex-col gap-y-8">
-          <div data-reveal>
-            <?php farm67_heading([
-              'title' => 'about',
-              'sub_title' => '夢街道farm67について',
-              'color' => 'orange',
-              'icon' => 'about',
-            ]); ?>
-          </div>
+}
 
-          <div class="flex flex-col gap-y-10 md:gap-y-12">
-            <div class="grid gap-y-6 md:gap-y-12">
-              <div data-reveal data-reveal-delay="100">
-                <h3 class="text-40 md:text-48 to-foreground w-full bg-gradient-to-r from-[#FF6B35] bg-clip-text leading-[1.3] text-transparent">
-                  季節とともに、<br />旬を楽しむ
-                </h3>
-              </div>
+$pm_img = static fn(string $file): string => esc_url(
+  get_template_directory_uri() . '/assets/images/' . $file,
+);
+?>
 
-              <div class="relative ml-0 flex w-fit flex-col gap-y-4 md:w-auto">
-                <div data-reveal data-reveal-delay="150">
-                  <h4 class="text-24 text-black-base md:text-28 flex flex-col leading-[1.4]">
-                    <span>農家が営む</span>
-                    <span>
-                      <span class="text-foreground">旬を味わい、</span><br class="md:hidden" /><span>体験できる夢街道farm67</span>
-                    </span>
-                  </h4>
-                </div>
+<section id="about" class="relative overflow-hidden bg-white text-[#2E3445]">
+  <div class="relative z-10 flex items-end justify-center gap-4 px-4 pt-6 xl:hidden">
+    <p
+      class="shrink-0 font-en text-[clamp(3rem,5vw,6rem)] font-regular leading-none tracking-[0.3em] text-[#EAECED] [writing-mode:vertical-rl] rotate-180"
+      aria-hidden="true"
+    >
+      PEARL JEWELRY
+    </p>
 
-                <div data-reveal data-reveal-delay="200">
-                  <p class="text-16 text-black-base md:text-20 leading-[1.6]">
-                    夢街道farm67では、<span class="text-foreground">一年を通して</span><br />
-                    旬のスイーツや農業体験を<br />
-                    楽しむことができます。
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="aspect-[388/465] max-h-[465px] w-[min(388px,calc(100vw-8rem))] shrink-0 overflow-hidden rounded-t-[280px]">
+      <img
+        src="<?php echo $pm_img('about.jpg'); ?>"
+        alt="真珠のアクセサリーを手作業で仕上げる様子"
+        width="388"
+        height="465"
+        class="size-full object-cover object-center"
+        loading="lazy"
+        decoding="async"
+      >
+    </div>
+  </div>
 
-        <div data-reveal data-reveal-delay="150" class="hidden md:block">
-          <div class="relative flex justify-end">
-            <?php farm67_picture([
-              'src' => 'about-01.jpg',
-              'alt' => 'about',
-              'class' => 'md:w-120 lg:w-140 rounded-2xl h-auto object-cover',
-              'loading' => 'lazy',
-            ]); ?>
-          </div>
-        </div>
-      </div>
+  <div class="relative z-0 mx-auto px-10 max-w-[1120px] items-center">
 
-      <div class="mt-16 grid grid-cols-1 gap-y-6 md:hidden">
-        <div data-reveal>
-          <?php farm67_picture([
-            'src' => 'about-01.jpg',
-            'alt' => '',
-            'class' => 'rounded-2xl h-auto w-full object-cover',
-            'loading' => 'lazy',
-          ]); ?>
-        </div>
-        <div data-reveal>
-          <?php farm67_picture([
-            'src' => 'about-02.jpg',
-            'alt' => '',
-            'class' => 'rounded-2xl h-auto w-full object-cover',
-            'loading' => 'lazy',
-          ]); ?>
-        </div>
-        <div data-reveal>
-          <?php farm67_picture([
-            'src' => 'about-03.jpg',
-            'alt' => '',
-            'class' => 'rounded-2xl h-auto w-full object-cover',
-            'loading' => 'lazy',
-          ]); ?>
+    <div
+        class="pointer-events-none absolute inset-x-[11px] top-15 z-10 hidden @container xl:block"
+        aria-hidden="true"
+    >
+        <p class="w-full text-center font-en text-[max(2.5rem,min(8.125rem,calc(100cqw/11)))] font-regular leading-normal tracking-[0.3em] whitespace-nowrap text-[#EAECED]/80">
+        PEARL JEWELRY
+        </p>
+    </div>
+
+    <div class="grid xl:grid-cols-2 xl:items-center xl:gap-10 xl:px-10 xl:pb-24 xl:pt-40 lg:px-0 mx-auto justify-center">
+      <div class="px-4 pt-10 xl:px-0 xl:pt-0">
+        <?php get_template_part('template-parts/section-label', null, ['label' => 'About']); ?>
+
+        <h2 class="mt-6 text-24 leading-relaxed tracking-[0.06em] xl:mt-8 xl:text-32">
+          “<span class="text-[#5B8E96]">六甲の光</span>”が育んだ輝きを、<br>
+          あなたの手で。
+        </h2>
+
+        <div class="mt-6 text-14 leading-[2] xl:mt-8 xl:text-18 xl:leading-[1.8]">
+          <p>
+            神戸が「真珠の街」と呼ばれる理由をご存知ですか？<br>
+            それは六甲山から降り注ぐ安定した北向きの光が、<br>
+            真珠の繊細な輝きを見極めるのに最適だったから。<br>
+            <br>
+            130年の歴史を重ねた「KitanoMedium」にて、<br>
+            職人と同じ光の中で、<br>
+            あなただけの運命の一粒を選び、息を吹き込む。<br>
+            神戸の歴史と文化を纏う、<br>
+            贅沢なひとときをお届けします。
+          </p>
         </div>
       </div>
 
-      <div class="relative mt-20 hidden md:block">
-        <div class="absolute inset-0 -z-10 overflow-hidden">
-          <div class="h-full w-full"></div>
-          <div class="absolute -top-40 left-1/2 h-80 w-[200%] -translate-x-1/2 rounded-t-[100%]"></div>
-        </div>
-
-        <div class="md:gap-x-25 grid grid-cols-1 gap-y-12 md:grid-cols-2 md:items-center">
-          <div data-reveal data-reveal-delay="100">
-            <?php farm67_picture([
-              'src' => 'about-02.jpg',
-              'alt' => '',
-              'class' => 'rounded-2xl h-auto w-full justify-self-end object-cover md:w-auto',
-              'loading' => 'lazy',
-            ]); ?>
-          </div>
-          <div data-reveal data-reveal-delay="150">
-            <?php farm67_picture([
-              'src' => 'about-03.jpg',
-              'alt' => '',
-              'class' => 'md:w-120 rounded-2xl h-auto w-full justify-self-start object-cover',
-              'loading' => 'lazy',
-            ]); ?>
-          </div>
+      <div class="hidden min-w-0 xl:block">
+        <div class="mx-auto w-full max-w-[550px] overflow-hidden rounded-t-[280px]">
+          <img
+            src="<?php echo $pm_img('about.jpg'); ?>"
+            alt="真珠のアクセサリーを手作業で仕上げる様子"
+            width="550"
+            height="660"
+            class="aspect-[550/660] w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          >
         </div>
       </div>
     </div>

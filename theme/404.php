@@ -2,24 +2,17 @@
 /**
  * 404 template
  *
- * @package Farm67_Theme
+ * @package PMedium_Theme
  */
 
 get_header(); ?>
 
-<main role="main" class="bg-[#FFFCF1] py-24 md:py-28 lg:py-32">
-  <div class="mx-auto flex max-w-4xl flex-col items-center gap-y-8 px-gutter-sm-5 text-center lg:px-gutter-lg-20">
-    <p class="font-title-en text-foreground text-76 leading-none">404</p>
-    <p class="text-18 text-foreground">
-      <?php esc_html_e('お探しのページは見つかりませんでした。', 'farm67'); ?>
-    </p>
-    <?php farm67_pill_button([
-      'href' => home_url('/'),
-      'label' => 'Back to top',
-      'variant_classes' => 'border-foreground text-foreground hover:bg-foreground hover:text-white',
-      'circle_classes' => 'bg-foreground text-white',
-    ]); ?>
-  </div>
+<main class="mx-auto max-w-5xl px-6 py-12 text-center">
+  <h1 class="text-6xl font-bold">404</h1>
+  <p class="mt-4 text-gray-600"><?php esc_html_e('Page not found.', 'p-medium'); ?></p>
+  <a href="<?php echo esc_url(home_url('/')); ?>" class="mt-8 inline-block text-sm underline">
+    <?php esc_html_e('Back to home', 'p-medium'); ?>
+  </a>
 </main>
 
 <?php get_footer();

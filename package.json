@@ -1,7 +1,7 @@
 {
-  "name": "wp-farm67",
+  "name": "p-medium",
   "version": "1.0.0",
-  "description": "夢街道farm67 WordPress theme with TypeScript, Tailwind CSS, and Vite",
+  "description": "WordPress theme with TypeScript, Tailwind CSS, and Vite",
   "scripts": {
     "dev": "concurrently \"npm:wp:start\" \"npm:vite\"",
     "build": "find . -name '.DS_Store' -type f -delete && vite build",
@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@prettier/plugin-php": "^0.24.0",
-    "@tailwindcss/vite": "^4.2.0",
+    "@tailwindcss/postcss": "^4.3.0",
     "@types/node": "^22.9.0",
     "@vitejs/plugin-legacy": "^7.2.1",
     "@wordpress/env": "^10.14.0",
@@ -34,8 +34,5 @@
     "typescript": "^5.7.2",
     "vite": "^7.1.9",
     "vite-plugin-live-reload": "^3.0.5"
-  },
-  "dependencies": {
-    "swiper": "^12.1.3"
   }
 }

@@ -2,7 +2,7 @@
   "core": "WordPress/WordPress",
   "plugins": [],
   "mappings": {
-    "wp-content/themes/farm67-theme": "./theme"
+    "wp-content/themes/p-medium-theme": "./theme"
   },
   "config": {
     "WP_DEBUG": true,

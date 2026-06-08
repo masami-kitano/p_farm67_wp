@@ -1,10 +1,15 @@
 import { defineConfig } from 'vite';
 import path from 'path';
-import tailwindcss from '@tailwindcss/vite';
+import tailwindcss from '@tailwindcss/postcss';
 import liveReload from 'vite-plugin-live-reload';
 
 export default defineConfig({
-  plugins: [tailwindcss(), liveReload([path.resolve(__dirname, 'theme/**/*.php')])],
+  plugins: [liveReload([path.resolve(__dirname, 'theme/**/*.php')])],
+  css: {
+    postcss: {
+      plugins: [tailwindcss()],
+    },
+  },
   publicDir: false,
   base: './',
   build: {
