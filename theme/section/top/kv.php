@@ -32,12 +32,12 @@ $pm_img = static fn(string $file): string => esc_url(
         alt="Kitano Medium"
         width="284"
         height="40"
-        class="mx-auto aspect-[284/40] w-full max-w-[180px] md:max-w-[240px]"
+        class="mx-auto aspect-284/40 w-full max-w-[180px] md:max-w-120"
         decoding="async"
       >
     </div>
 
-    <div class="mx-auto max-w-[390px] px-4 pt-10 pb-15 xl:hidden">
+    <div class="mx-auto max-w-9.875rem px-4 pt-10 pb-15 md:hidden">
       <div class="flex flex-col gap-[4px] overflow-hidden">
         <div class="grid grid-cols-[416fr_300fr] items-end gap-[4px]">
           <img
@@ -106,7 +106,7 @@ $pm_img = static fn(string $file): string => esc_url(
       </a>
     </div>
 
-    <div class="mx-auto hidden max-w-[1350px] px-10 pt-7.5 pb-16.25 xl:block lg:px-0">
+    <div class="mx-auto hidden max-w-[1350px] px-10 pt-7.5 pb-16.25 md:block lg:px-0">
       <div class="grid w-full grid-cols-[420fr_420fr_420fr] items-stretch gap-2">
         <div class="flex min-w-0 flex-col">
           <img
@@ -114,7 +114,7 @@ $pm_img = static fn(string $file): string => esc_url(
             alt=""
             width="420"
             height="310"
-            class="aspect-[420/310] w-full object-cover rounded-tl-[200px]"
+            class="aspect-420/310 w-full object-cover rounded-tl-[200px]"
             loading="eager"
             decoding="async"
           >
@@ -138,7 +138,7 @@ $pm_img = static fn(string $file): string => esc_url(
           alt=""
           width="420"
           height="610"
-          class="aspect-[420/610] min-w-0 w-full object-cover"
+          class="aspect-420/610 min-w-0 w-full object-cover"
           loading="eager"
           decoding="async"
         >
@@ -149,7 +149,7 @@ $pm_img = static fn(string $file): string => esc_url(
             alt=""
             width="320"
             height="292"
-            class="aspect-[320/292] w-[76.19%] max-w-full self-start object-cover"
+            class="aspect-320/292 w-[76.19%] max-w-full self-start object-cover"
             loading="eager"
             decoding="async"
           >
@@ -158,7 +158,7 @@ $pm_img = static fn(string $file): string => esc_url(
             alt=""
             width="420"
             height="310"
-            class="aspect-[420/310] w-full rounded-br-[200px] object-cover"
+            class="aspect-420/310 w-full rounded-br-[200px] object-cover"
             loading="lazy"
             decoding="async"
           >
